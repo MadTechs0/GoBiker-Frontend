@@ -1,0 +1,13 @@
+.btn-primary {
+    background-color: #ff272a;
+    color: #fff;
+    border: none;
+}
+.btn-light {
+    background-color: #ffeae9;
+    color: #ff272a;
+    border: none;
+}
+.profile-head{
+    font-size: xx-large;
+}

@@ -1,0 +1,36 @@
+<div class="d-flex flex-column option-gap container">
+  <i class="pi pi-arrow-left"></i>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="profile-head fw-medium">Registration</div>
+    <button class="btn btn-outline-primary rounded-pill d-flex align-items-center">skip</button>
+  </div>
+  <div class="d-flex align-items-center justify-content-center">
+    <img class="profile-img rounded-circle" src="/assets/Images/default_profile.jpg" alt="">
+  </div>
+  <form [formGroup]="signInForm" class="d-flex flex-column option-gap">
+    <div class="d-flex flex-column gap-10">
+      <div class="fw-normal fs-5">Name</div>
+      <input type="text" formControlName="userName" class="form-control" placeholder="jhon Smith" />
+    </div>
+    <div class="d-flex flex-column gap-10">
+      <div class="fw-normal fs-5">Email</div>
+      <input type="email" formControlName="email" class="form-control" placeholder="jhon@email.com" />
+    </div>
+    <div class="d-flex flex-column gap-10">
+      <div class="fw-normal fs-5">Phone</div>
+      <input type="" formControlName="phone" class="form-control" placeholder="0987654321 (optional)" />
+    </div>
+    <div class="d-flex flex-column gap-10">
+      <div class="fw-normal fs-5">Password</div>
+      <input type="password" formControlName="password" class="form-control" placeholder="0987654321 (optional)" />
+    </div>
+    <div class="d-flex flex-column gap-10">
+      <div class="fw-normal fs-5">Confirm Password</div>
+      <input type="password" formControlName="confirmPassword" class="form-control" placeholder="0987654321 (optional)" />
+    </div>
+  </form>
+    <button class="btn btn-primary fw-medium fs-6 w-100 p-2 rounded-2" (click)="signIn()">
+      Sign Up
+    </button> 
+    <div class="text-color  d-flex justify-content-center">Already have and account? <div class="text-color-dark border-bottom border-black"  routerLink="/auth/login">Login Here</div></div>
+</div>

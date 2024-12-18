@@ -1,0 +1,12 @@
+.community-head{
+    font-size: xx-large;
+}
+.search-rides{
+    mat-icon{
+        position: absolute;        
+    }
+    input{
+        background-color: #f1f3f4;
+        color: #b6b4be;
+    }
+}

@@ -1,0 +1,52 @@
+<div class="home container">
+    <div class="home-head fs-1 fw-medium mt-2 mb-3">
+        Welcome Riders
+    </div>
+    <div class="home-options d-flex justify-content-between align-items-center">
+        <div class="d-flex flex-column align-items-center justify-content-start">
+            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">search</mat-icon>
+            <div class="fw-medium fs-6 text-center text-container">Find Rides</div>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-start" routerLink="/rides/create">
+            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">add</mat-icon>
+            <div class="fw-medium fs-6 text-center text-container">Organize Ride</div>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-start" routerLink="/events">
+            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">calendar_today</mat-icon>            
+            <div class="fw-medium fs-6 text-center text-container">Upcoming Events</div>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-start">
+            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">record_voice_over</mat-icon>
+            <div class="fw-medium fs-6 text-center text-container">Discussions</div>
+        </div>
+    </div>
+    <div class="fw-medium fs-4 mt-4 mb-3">Popular Rides</div>
+    <div class="popular-rides d-flex">
+        <div class="ride-card">
+            <img class="ride-img rounded-4" src="/assets/Images/default_ride.jpg" alt="">
+
+            <div class="ride-title fw-medium mt-2 mb-2">
+                Mountain Trail
+            </div>
+            <div class="ride-info text-color fs-6">
+                10 riders joined
+            </div>
+        </div>
+        <div class="ride-card">
+            <img class="ride-img rounded-4" src="/assets/Images/default_ride.jpg" alt="">
+            <div class="ride-title fw-medium mt-2 mb-2">
+                Mountain Trail
+            </div>
+            <div class="ride-info text-color fs-6">
+                10 riders joined
+            </div>
+        </div>
+    </div>
+    <div class="fw-medium fs-4 mt-4 mb-3">Recent Posts</div>
+    
+</div>
+<div class="recent-posts">
+    <app-post-card routerLink="/posts/postdef"></app-post-card>
+    <app-post-card routerLink="/posts/postdef"></app-post-card>
+    <app-post-card routerLink="/posts/postdef"></app-post-card>
+</div>

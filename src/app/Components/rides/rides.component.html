@@ -1,0 +1,16 @@
+<div class="rides d-flex flex-column option-gap position-relative h-100" *ngIf="showCards">
+    <div class="page-head d-flex p-2 flex-column option-gap border-bottom">
+        <div class="d-flex justify-content-between"><div class="p-color fw-bold fs-1">GoBiker</div><mat-icon>notifications</mat-icon></div>
+        <div class="search-rides d-flex align-items-center position-relative"><mat-icon class="ms-1 text-color-dark">search</mat-icon><input type="text" class="fw-medium rounded-pill text-color-dark form-control ps-5" placeholder="Search Rides"></div>      
+    </div>
+    <div class="p-3 d-flex flex-column option-gap">
+        <div class="fw-medium fs-1">Available Rides</div>
+        <div class="rides d-flex flex-column gap-10">
+            <app-ride-card routerLink="ridedef"></app-ride-card>
+            <app-ride-card routerLink="ridedef"></app-ride-card>
+            <app-ride-card routerLink="ridedef"></app-ride-card>
+        </div>
+        <mat-icon class="add-ride rounded-circle p-2 position-absolute text-end" routerLink="create">add</mat-icon>
+    </div>
+    </div>
+<router-outlet></router-outlet>

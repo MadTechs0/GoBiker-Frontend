@@ -1,0 +1,27 @@
+<div class="d-flex flex-column justify-content-center align-items-center position-relative">
+    <div class="footer-toggle text-center p-2" (click)="show = !show"  [class.toggle-icon]="!show">
+          <mat-icon>{{ show ? 'expand_more' : 'expand_less' }}</mat-icon>
+    </div>
+    <div class="footer d-flex w-100 justify-content-between text-color-dark p-2" [class.footer-hidden]="!show"> 
+        <div class="footer-option text-center"  routerLink="/home"  [routerLinkActive]="'active-option'">
+            <mat-icon>home_border</mat-icon>
+            <div class="option-title fw-medium">Home</div>
+        </div>
+        <div class="footer-option text-center" routerLink="/rides" [routerLinkActive]="'active-option'">
+            <mat-icon>two_wheeler</mat-icon>
+            <div class="option-title fw-medium">Rides</div>
+        </div>
+        <div class="footer-option text-center create-option">
+            <mat-icon class="rounded">add</mat-icon>
+            <div class="option-title fw-medium">Create</div>
+        </div>
+        <div class="footer-option text-center" routerLink="/communities"  [routerLinkActive]="'active-option'">
+            <mat-icon>groups</mat-icon>
+            <div class="option-title fw-medium">Community</div>
+        </div>
+        <div class="footer-option text-center" routerLink="/profile"  [routerLinkActive]="'active-option'">
+            <mat-icon>person</mat-icon>
+            <div class="option-title fw-medium">Profile</div>
+        </div>
+    </div>
+</div>

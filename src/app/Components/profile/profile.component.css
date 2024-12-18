@@ -1,0 +1,12 @@
+.profile-head{
+    font-size: xx-large;
+}
+.profile-img{
+    min-height: 120px;
+    min-width: 120px;
+    max-height: 120px;
+    max-width: 120px;
+    background-color: violet;
+    border: 1px solid rgb(255, 24, 217);
+    box-shadow: 0 0 40px rgb(243, 31, 243);
+}

@@ -1,0 +1,59 @@
+.footer-toggle {
+    position:absolute;
+    top: -45px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    width: fit-content;
+    height: fit-content;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    mat-icon {
+        font-size: 30px;
+        color: #333;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.toggle-icon{    
+  transform: translateY(100%);
+}
+.footer-hidden {
+  transform: translateY(100%);
+  background-color: transparent;
+}
+    
+.footer{
+    background-color: #ffff;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+.active-option{    
+    color:#ff272a;
+    mat-icon{
+        background-color: #ffeae9;
+        border-radius: 50%;
+        padding: 5px;
+        width: auto;
+        height: auto;
+        max-width: 36px;
+    }
+}
+.option-title{
+    font-size: small;
+}
+.create-option{
+    mat-icon{
+        background-color: #4e4e4e;
+        color: #ffff;
+        padding: 3px;
+        width: fit-content;
+        height: fit-content;
+    }
+}
+.width-small{
+    width: 50px;
+}

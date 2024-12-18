@@ -1,0 +1,28 @@
+<div class="d-flex flex-column justify-content-center align-items-center position-relative">
+    <div class="toggle" (click)="show = !show"  [ngClass]="{'footer-hide': !show}">
+
+    </div>
+    <div class="footer d-flex justify-content-around text-color-dark p-2" [ngClass]="{ 'footer-hidden': !show }"> 
+        <div class="footer-option text-center"  routerLink="/home"  [routerLinkActive]="'active-option'">
+            <mat-icon>home_border</mat-icon>
+            <div class="option-title fw-medium">Home</div>
+        </div>
+        <div class="footer-option text-center" routerLink="rides" [routerLinkActive]="'active-option'">
+            <mat-icon>two_wheeler</mat-icon>
+            <div class="option-title fw-medium">Rides</div>
+        </div>
+        <div class="footer-option text-center create-option">
+            <mat-icon class="rounded">add</mat-icon>
+            <div class="option-title fw-medium">Create</div>
+        </div>
+        <div class="footer-option text-center" routerLink="/communities"  [routerLinkActive]="'active-option'">
+            <mat-icon>groups</mat-icon>
+            <div class="option-title fw-medium">Community</div>
+        </div>
+        <div class="footer-option text-center" routerLink="/profile"  [routerLinkActive]="'active-option'">
+            <mat-icon>person</mat-icon>
+            <div class="option-title fw-medium">Profile</div>
+        </div>
+    </div>
+</div>
+  

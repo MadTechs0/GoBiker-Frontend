@@ -1,0 +1,94 @@
+<div class="post-card container d-flex flex-column option-gap">
+    <div class="post">
+        <div class="publish-info d-flex justify-content-between">
+            <div class="d-flex">
+                <img class="acc-img rounded-circle me-2" src="/assets/Images/default_female.jpg" alt="">
+                <div class="acc-name">
+                    <div class="fw-medium">Shivam singh</div>
+                    <div class="fw-light"  routerLink="/community/communitydef">/ridersUnited</div>
+                </div>
+            </div>
+            <div class="post-time text-color">
+                1d
+            </div>
+        </div>
+        <div class="post-description fw-normal mt-2 mb-1 fs-6">
+            Hello riders feel free to join our community for regular weekent rides in gurugram and NCR region
+        </div>
+        <img src="/assets/Images/default_post.jpg" class="post-img" alt="">
+        <div class="post-options d-flex option-gap text-color-dark mt-2 mb-2">
+            <div class="d-flex align-items-center justify-content-center"><mat-icon>favorite_border</mat-icon><span>1k</span></div> 
+            <div class="d-flex justify-content-center align-items-center"><mat-icon>insert_comment</mat-icon><span>2</span></div>
+            <div class="d-flex justify-content-center align-items-center"><mat-icon>bookmark_border</mat-icon></div>
+        </div>
+    </div>
+    <div class="comment-option" (click)="commentBox = !commentBox">
+        <button class="btn rounded-pill border-secondary btn-light w-100">Add Comment</button>
+    </div>
+    <div class="post-comments border-top h-100 pt-2 d-flex flex-column option-gap">
+        <div class="comment border-bottom pb-2">
+            <div class="comment-acc">
+                <div class="d-flex gap-10 align-items-center">
+                    <img  class="acc-img rounded-circle" src="/assets/Images/default_female.jpg" alt="">
+                    <div class="acc-name">
+                        Shivam singh
+                    </div>
+                </div>
+                <div class="comment-text text-color-dark">
+                    Hello guys i am new here i would love to join your community 
+                    looking to meet you guys for new rides for sure see you all soon 
+                </div>
+            </div>
+            <div class="comment-options text-end">
+                <mat-icon (click)="replyBox = !replyBox" *ngIf="!replyBox">reply</mat-icon>
+            </div>            
+            <div class="reply-comment rounded d-flex align-items-center gap-10" *ngIf="replyBox">
+                <textarea type="text" class="border-bottom p-2 text-color rounded" placeholder="Add your reply"></textarea>
+                <mat-icon (click)="replyBox = !replyBox">send</mat-icon>
+            </div>
+        </div>
+        <div class="comment border-bottom pb-2">
+            <div class="comment-acc">
+                <div class="d-flex gap-10 align-items-center">
+                    <img  class="acc-img rounded-circle" src="/assets/Images/default_profile.jpg" alt="">
+                    <div class="acc-name">
+                        Shivam singh
+                    </div>
+                </div>
+                <div class="comment-text text-color-dark">
+                    Hello guys i am new here i would love to join your community 
+                    looking to meet you guys for new rides for sure see you all soon 
+                </div>
+            </div>
+            <div class="comment-options text-end">
+                <mat-icon>reply</mat-icon>
+            </div>            
+            <div class="reply-comment rounded d-flex align-items-center gap-10" *ngIf="replyBox">
+                <textarea type="text" class="border-bottom p-2 text-color rounded" placeholder="Add your reply"></textarea>
+                <mat-icon (click)="replyBox = !replyBox">send</mat-icon>
+            </div>            
+        </div>
+        <div class="comment border-bottom pb-2">
+            <div class="comment-acc">
+                <div class="d-flex gap-10 align-items-center">
+                    <img  class="acc-img rounded-circle" src="/assets/Images/default_female.jpg" alt="">
+
+                    <div class="acc-name">
+                        Shivam singh
+                    </div>
+                </div>
+                <div class="comment-text text-color-dark">
+                    Hello guys i am new here i would love to join your community 
+                    looking to meet you guys for new rides for sure see you all soon 
+                </div>
+            </div>
+            <div class="comment-options text-end">
+                <mat-icon>reply</mat-icon>
+            </div>
+        </div>
+    </div>
+    <div class="new-comment shadow rounded d-flex align-items-center gap-10" [class.show]="commentBox">
+        <textarea type="text" class="border-bottom p-2 text-color rounded" placeholder="Add your comment"></textarea>
+        <mat-icon>send</mat-icon>
+    </div>
+</div>

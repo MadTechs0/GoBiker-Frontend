@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "primeicons/primeicons.css";
+html, body { height: 100%;
+    font-family: 'Inter', sans-serif !important; }
+body { margin: 0; 
+background-color: #ffffff;}
+
+.icon-highlight{
+    color:#ff272a;
+    background-color: #ffeae9;
+    min-width: 60px;
+    min-height: 60px;
+}
+.primary-color{
+    color: #ff272a;
+    background-color: #ffeae9;
+}
+.text-color{
+    color: #afaeb3;
+}
+.text-color-dark{
+    color: #4b4b4b;
+}
+.option-gap{
+    gap: 20px;
+}
+.gap-10{
+    gap: 10px;
+}
+.btn-prime {
+    background-color: #ffeae9;
+    color: #ff272a;
+    border: none;
+}
+.btn-primary {
+    background-color: #ff272a;
+    color: #fff;
+    border: none;
+}
+.btn-light {
+    background-color: #ffeae9;
+    color: #ff272a;
+    border: none;
+}
+.p-color{
+    color: #ff272a;
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

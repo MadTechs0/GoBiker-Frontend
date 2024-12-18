@@ -1,0 +1,31 @@
+.community-poster{
+    min-width: 100%;
+    min-height: 170px;
+    max-height: 170px;
+    background-color: aqua;
+    position: relative;background-image: url('/assets/Images/default_comm.jpg');
+
+}
+.community-info{
+    z-index: 1000;
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    .community-img{
+        min-height: 60px;
+        min-width: 60px;
+        max-height: 60px;
+        max-width: 60px;
+        background-color: black;
+    }
+    .community-title{
+        position: absolute;
+        margin-left: 70px;
+        bottom: 0px;
+    }
+}
+.community-content{
+    span{
+        background-color: #afaeb3;
+    }
+}

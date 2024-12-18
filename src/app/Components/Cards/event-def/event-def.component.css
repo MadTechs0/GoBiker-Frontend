@@ -1,0 +1,38 @@
+.event{
+    background-color: #f1efef;
+}
+.event-img{
+     min-width: 100%;
+     min-height: 250px;
+     max-height: 250px;
+     background-image: url('/assets/Images/default_event.jpg');
+}
+.btn-primary {
+    background-color: #ff272a;
+    color: #fff;
+    border: none;
+}
+.btn-light {
+    background-color: #ffeae9;
+    color: #ff272a;
+    border: none;
+}
+.organizer-info{
+    .acc-img{
+        min-width: 60px;
+        min-height: 60px;
+        max-width: 60px;
+        max-height: 60px;
+        background-color: black;
+    }
+}
+.event-info{
+    position: absolute;
+    bottom: 70px;
+    background-color: #ffffff;
+    width: fit-content;
+    border-top: royalblue;
+}
+.event-details{
+    background-color: #f8f5f5;
+}

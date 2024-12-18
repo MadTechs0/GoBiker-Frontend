@@ -1,0 +1,28 @@
+.home-options{
+    gap: 10px;
+}
+.text-container {
+    max-width: 70px;
+    min-height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
+    line-height: 1.2; 
+}
+.popular-rides{
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    .ride-card{
+        .ride-img{
+            min-width: 200px;
+            min-height: 140px;
+            max-width: 200px;
+            max-height: 140px;
+            background-color: rgb(47, 144, 255);
+        }
+    }
+}
+.recent-posts{
+}

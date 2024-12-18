@@ -1,0 +1,16 @@
+.ride-img{
+    min-width: 100%;
+    min-height: 200px;
+    border: 4px dashed rgb(190, 190, 190);
+
+}
+.btn-primary {
+    background-color: #ff272a;
+    color: #fff;
+    border: none;
+}
+.btn-light {
+    background-color: #ffeae9;
+    color: #ff272a;
+    border: none;
+}

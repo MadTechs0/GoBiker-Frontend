@@ -25,9 +25,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "https://apis.mappls.com/advancedmaps/api/3.0/map_sdk.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "https://apis.mappls.com/advancedmaps/api/152afaccc2fd4eb33e12396207e2a208/map_sdk?layer=vector&v=3.0",
+              "https://apis.mappls.com/advancedmaps/api/152afaccc2fd4eb33e12396207e2a208/map_sdk_plugins?v=3.0"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -94,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

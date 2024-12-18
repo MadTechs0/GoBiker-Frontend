@@ -1,0 +1,18 @@
+.profile-head{
+    font-size: xx-large;
+}
+.profile-img{
+    max-height: 130px;
+    max-width: 130px;
+    background-color: violet;
+}
+.btn-primary {
+    background-color: #ff272a;
+    color: #fff;
+    border: none;
+}
+.btn-light {
+    background-color: #ffeae9;
+    color: #ff272a;
+    border: none;
+}
