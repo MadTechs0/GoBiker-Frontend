@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MapComponent } from './Components/map/map.component';
 import { CreateComponent } from './Components/create/create.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { AuthInterceptor } from './Shared/Interceptor/auth-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,11 @@ import { NgxEditorModule } from 'ngx-editor';
     ReactiveFormsModule,
     NgxEditorModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, 
+    useClass: AuthInterceptor, 
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

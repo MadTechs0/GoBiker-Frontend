@@ -16,7 +16,8 @@
         <mat-icon class="position-absolute show-password" *ngIf="!passwordVisible" (click)="passwordVisible = true">remove_red_eye</mat-icon>
         <mat-icon class="position-absolute show-password" *ngIf="passwordVisible" (click)="passwordVisible = false">visibility_off</mat-icon>
       </div>
-    <button class="btn btn-primary fw-medium fs-6 w-100 p-2 rounded-2">
+      <div class="text-danger">{{loginError}}</div>
+    <button class="btn btn-primary fw-medium fs-6 w-100 p-2 rounded-2" (click)="logIn()">
       Log In
     </button> 
     <div class="text-color  d-flex justify-content-center">Don't have and account yet? <div class="text-color-dark border-bottom border-black" routerLink="/auth/signup">Sign In</div></div>
