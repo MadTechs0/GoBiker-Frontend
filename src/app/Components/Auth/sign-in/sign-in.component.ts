@@ -9,11 +9,14 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class SignInComponent {
   signInForm!: FormGroup;
+  passwordVisible: boolean = false;
   constructor(private fb: FormBuilder, private authService: AuthService){
     this.signInForm = this.fb.group({
+      name: ['', Validators.required],
       userName : ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
-      password: ['', Validators.required],
+      phone: ['',],
+      password: ['', [Validators.required]],
       confirmPassword: ['', Validators.required]
     });
   }
@@ -29,5 +32,10 @@ export class SignInComponent {
         }
       );
     }
+  }
+  passwordValidator(){
+    console.log(this.signInForm.get('password')?.value);
+        
+    return /[A-Z]/.test(this.signInForm.get('password')?.value) || /[@*%]/.test(this.signInForm.get('password')?.value);
   }
 }

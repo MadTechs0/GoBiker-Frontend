@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { CommunitiesComponent } from './Components/communities/communities.component';
@@ -12,6 +12,7 @@ import { CreateRideComponent } from './Components/create-ride/create-ride.compon
 import { LogInComponent } from './Components/Auth/log-in/log-in.component';
 import { SignInComponent } from './Components/Auth/sign-in/sign-in.component';
 import { EventDefComponent } from './Components/Cards/event-def/event-def.component';
+import { CreateComponent } from './Components/create/create.component';
 
 const routes: Routes = [
   {path: 'auth', 
@@ -21,6 +22,7 @@ const routes: Routes = [
     ]
   },
   {path:'home', component:HomeComponent},
+  {path:'create', component:CreateComponent},
   {path: 'communities', component:CommunitiesComponent},
   {path:'profile', component:ProfileComponent},
   {path: 'posts', 

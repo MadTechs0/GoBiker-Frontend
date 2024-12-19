@@ -1,17 +1,17 @@
 <div class="d-flex flex-column option-gap container">
     <i class="pi pi-arrow-left"></i>
     <label for="title" class="fs-6 fw-normal">Upload Image</label>
-    <div class="ride-img text-center flex-column rounded-4 d-flex align-items-center justify-content-center text-color">
+    <label for="ride-img" class="ride-img text-center flex-column rounded-4 d-flex align-items-center justify-content-center text-color">
         <mat-icon class="">cloud_ipload</mat-icon>
         <div>Tap to upload image</div>
-    </div>  
+        <input type="file" id="ride-img">
+    </label>  
     <div class="d-flex gap-10">
         <label for="title" class="fs-6 fw-medium">InterCity</label><input type="checkbox" placeholder="Ex: City Night Ride">
     </div>
     <div class="d-flex flex-column gap-10">
         <label for="title" class="fs-6 fw-normal">Ride Title</label>
         <input type="text" placeholder="Ex: City Night Ride" class="form-control p-2 text-color">
-        <app-map></app-map>
     </div>
     <div class="d-flex flex-column gap-10">
         <label for="title" class="fs-6 fw-normal">Starting Location</label>
@@ -28,18 +28,18 @@
     <div class="d-flex flex-column gap-10">
         <label for="title" class="fs-6 fw-normal">Required Gears</label>
         <div class="d-flex option-gap w-100 flex-wrap">
-            <div class="d-flex gap-10 border p-3 rounded">
+            <label for="helmet" class="d-flex gap-10 border p-3 rounded">
+                <input type="checkbox" id="helmet" name="helmet">
+                <div  class="d-flex gap-10 align-items-center"><mat-icon>sports_motorsports</mat-icon>Helmet</div>
+            </label>
+            <label class="d-flex gap-10 border p-3 rounded">
+                <input  type="checkbox" name="gloves">
+                <div class="d-flex gap-10 align-items-center"><mat-icon>sports_mma</mat-icon>Gloves</div>
+            </label>
+            <label class="d-flex gap-10 border p-3 rounded">
                 <input type="checkbox" name="helmet">
-                <label for=""  class="d-flex gap-10 align-items-center"><mat-icon>sports_motorsports</mat-icon>Helmet</label>
-            </div>
-            <div class="d-flex gap-10 border p-3 rounded">
-                <input type="checkbox" name="helmet">
-                <label for="" class="d-flex gap-10 align-items-center"><mat-icon>sports_mma</mat-icon>Gloves</label>
-            </div>
-            <div class="d-flex gap-10 border p-3 rounded">
-                <input type="checkbox" name="helmet">
-                <label for=""  class="d-flex gap-10 align-items-center">Jacket</label>
-            </div>
+                <div for=""  class="d-flex gap-10 align-items-center">Jacket</div>
+            </label>
         </div>
     </div> 
     <div class="d-flex flex-column ga p-10">

@@ -1,0 +1,27 @@
+.create{
+    background-color: #fff;
+    
+}
+input{
+    outline: none;
+    border: none;
+}
+.communitiy-input{
+    background-color: #f1f3f4;
+}
+.post-btn{
+    align-self: self-end;
+}
+::ng-deep .NgxEditor {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+.editor-options{
+    mat-icon{
+        border-left: 1px solid #ccc;
+    }
+}
+#image-input{
+    display: none;
+}

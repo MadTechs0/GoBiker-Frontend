@@ -17,7 +17,7 @@ export class AppComponent {
       } else if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
         setTimeout(() => {
           this.loading = false;
-        }, 500);
+        }, 300);
       }
     });
   }

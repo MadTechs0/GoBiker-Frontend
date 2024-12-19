@@ -16,3 +16,7 @@
     color: #ff272a;
     border: none;
 }
+.show-password{
+    right: 10px;
+    cursor: pointer;
+}

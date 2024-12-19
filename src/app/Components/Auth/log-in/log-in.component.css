@@ -11,3 +11,7 @@
 .profile-head{
     font-size: xx-large;
 }
+.show-password{
+    right: 10px;
+    cursor: pointer;
+}

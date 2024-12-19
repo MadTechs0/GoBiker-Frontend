@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { PostCardComponent } from './Components/Cards/post-card/post-card.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PostDefComponent } from './Components/Cards/post-def/post-def.component';
@@ -25,6 +24,8 @@ import { CreateRideComponent } from './Components/create-ride/create-ride.compon
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MapComponent } from './Components/map/map.component';
+import { CreateComponent } from './Components/create/create.component';
+import { NgxEditorModule } from 'ngx-editor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { MapComponent } from './Components/map/map.component';
     LoadComponent,
     CreateRideComponent,
     MapComponent,
+    CreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { MapComponent } from './Components/map/map.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,7 +20,7 @@
     height: 3px;
     background: #ff272a;
     z-index: 9999;
-    animation: loader-animation 0.5s linear infinite;
+    animation: loader-animation 0.3s linear infinite;
   }
   
   @keyframes loader-animation {

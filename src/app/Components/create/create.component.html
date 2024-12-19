@@ -1,0 +1,25 @@
+<div class="create d-flex flex-column gap-10 p-3 h-100 w-100">
+  <button class="btn btn-primary rounded-pill fw-medium post-btn">Post</button>
+  <div class="d-flex align-items-center gap-10">
+    <div class="text-color fs-6">post to:</div>
+    <input type="text" class="communitiy-input fs-6 p-2 rounded" placeholder="click to search communities">
+  </div>
+  <input
+    type="text"
+    class="post-title fs-1 fw-bold w-100"
+    placeholder="Title"
+  />
+  <ngx-editor
+    [editor]="editor"
+    [ngModel]="html"
+    [disabled]="false"
+    class="fs-5 w-100"
+    [placeholder]="'Add post description...'"
+  ></ngx-editor>
+  <div class="editor-options d-flex flex-wrap align-items-center w-100">
+    <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+    <label for="image-input"><mat-icon class="fs-4 ps-1">image</mat-icon></label>
+    <input (input)="postImg" type="file" (change)="onFileSelected($event)" id="image-input">
+  </div>
+  <img [src]="postImg" class="rounded-4 w-100" alt="">
+</div>
