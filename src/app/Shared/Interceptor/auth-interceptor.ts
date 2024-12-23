@@ -10,7 +10,10 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
-    
+    if (req.url.includes('amazonaws.com')) {
+      const modifiedReq = req.clone({ headers: req.headers.delete('Authorization') });
+      return next.handle(modifiedReq);
+    }
     console.log('Token retrieved in interceptor:', token);
     let clonedRequest = req;
     if (token) {

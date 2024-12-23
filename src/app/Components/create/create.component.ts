@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Editor, Toolbar } from 'ngx-editor';
+import { Post } from 'src/app/Models/post.model';
+import { PostService } from 'src/app/Services/post.service';
 
 @Component({
   selector: 'app-create',
@@ -8,35 +10,46 @@ import { Editor, Toolbar } from 'ngx-editor';
 })
 export class CreateComponent {
   editor!: Editor;
+  post:Post = {
+    communityId:'1234',
+    title:'',
+    description:''
+  };
   toolbar: Toolbar = [
     // default value
     ['bold', 'italic'],
     ['underline', 'strike'],    
     ['text_color', 'background_color']
   ];
-  selectedFile: File|null = null;
+  selectedFile!: File;
   postImg: string | ArrayBuffer | null = null;
   html='';
 
-
+  constructor(private postService:PostService){}
   ngOnInit(): void {
     this.editor = new Editor();
   }
 
-  // make sure to destory the editor
   ngOnDestroy(): void {
     this.editor.destroy();
   }
 
   onFileSelected(event:any):void{
-    const file: File = event.target.files[0];
-    if(file){
+    this.selectedFile = event.target.files[0];
+    if(this.selectedFile){
       const reader = new FileReader();
 
       reader.onload = () =>{
         this.postImg = reader.result;
       };
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(this.selectedFile);
+    }
+  }
+
+  createPost(){
+    console.log(this.post);
+    if(this.selectedFile && this.post.title && this.post.communityId){
+      this.postService.createPost(this.post, this.selectedFile);
     }
   }
 }

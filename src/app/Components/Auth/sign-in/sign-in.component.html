@@ -4,8 +4,11 @@
     <div class="profile-head fw-medium">Registration</div>
     <button class="btn btn-outline-primary rounded-pill d-flex align-items-center">skip</button>
   </div>
-  <div class="d-flex align-items-center justify-content-center">
-    <img class="profile-img rounded-circle" src="/assets/Images/default_profile.jpg" alt="">
+  <div class="d-flex align-items-center justify-content-center"for="img-input">
+    <label for="img-input">
+      <img  class="profile-img rounded-circle" [src]="postImg" alt="profile image">
+    </label>
+    <input type="file" (input)="postImg" (change)="onFileSelected($event)" id="img-input">
   </div>
   <form [formGroup]="signInForm" class="d-flex flex-column option-gap">
     <div class="d-flex flex-column gap-10">
@@ -36,11 +39,11 @@
           <mat-icon class="position-absolute show-password" *ngIf="passwordVisible" (click)="passwordVisible = false">visibility_off</mat-icon>
         </div>
         <div *ngIf="signInForm.get('password')!.touched || signInForm.get('password')!.value">
-          <div *ngIf="signInForm.get('password')?.touched || signInForm.get('password')!.value.length < 8" [ngClass]="signInForm.get('password')!.value.length < 8 ? 'text-danger' : 'text-success'">
-            *contains at least 8 characters.
+          <div class="d-flex align-items-center gap-10" *ngIf="signInForm.get('password')?.touched || signInForm.get('password')!.value.length < 8" [ngClass]="signInForm.get('password')!.value.length < 8 ? 'text-danger' : 'text-success'">
+            <mat-icon class="fw-bold">{{passwordValidator()? 'check_circle_outline': 'highlight_off'}}</mat-icon><div class="d-flex flex-wrap">contains at least 8 characters.</div>
           </div>
-          <div *ngIf="((!passwordValidator() || signInForm.get('password')?.touched) || (signInForm.get('password')?.touched) && passwordValidator())" [ngClass]="!passwordValidator()? 'text-danger' : 'text-success'">
-            *contains at least one uppercase or a special character (@, *, %).
+          <div class="d-flex align-items-center gap-10"*ngIf="((!passwordValidator() || signInForm.get('password')?.touched) || (signInForm.get('password')?.touched) && passwordValidator())" [ngClass]="!passwordValidator()? 'text-danger' : 'text-success'">
+            <mat-icon class="fw-bold"> {{passwordValidator()? 'check_circle_outline': 'highlight_off'}}</mat-icon><div class="d-flex flex-wrap">contains at least one uppercase or a special character (@, *, %).</div>
           </div>
         </div>
       </div>

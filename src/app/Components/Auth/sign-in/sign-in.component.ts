@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class SignInComponent {
   signInForm!: FormGroup;
   passwordVisible: boolean = false;
+  selectedFile: File|null = null;
+  postImg: string | ArrayBuffer | null = "/assets/Images/default_profile.jpg";
   constructor(private fb: FormBuilder, private authService: AuthService, private router:Router){
     this.signInForm = this.fb.group({
       name: ['', Validators.required],
@@ -41,5 +43,17 @@ export class SignInComponent {
     console.log(this.signInForm.get('password')?.value);
         
     return /[A-Z]/.test(this.signInForm.get('password')?.value) || /[@*%]/.test(this.signInForm.get('password')?.value);
+  }
+  
+  onFileSelected(event:any):void{
+    const file: File = event.target.files[0];
+    if(file){
+      const reader = new FileReader();
+
+      reader.onload = () =>{
+        this.postImg = reader.result;
+      };
+    reader.readAsDataURL(file);
+    }
   }
 }

@@ -2,6 +2,8 @@
     font-size: xx-large;
 }
 .profile-img{
+    min-height: 130px;
+    min-width: 130px;
     max-height: 130px;
     max-width: 130px;
     background-color: violet;
@@ -19,4 +21,7 @@
 .show-password{
     right: 10px;
     cursor: pointer;
+}
+#img-input{
+    display: none;
 }

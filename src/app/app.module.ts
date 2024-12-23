@@ -27,6 +27,7 @@ import { MapComponent } from './Components/map/map.component';
 import { CreateComponent } from './Components/create/create.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { AuthInterceptor } from './Shared/Interceptor/auth-interceptor';
+import { TopBarComponent } from './Components/top-bar/top-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { AuthInterceptor } from './Shared/Interceptor/auth-interceptor';
     CreateRideComponent,
     MapComponent,
     CreateComponent,
+    TopBarComponent,
   ],
   imports: [
     BrowserModule,
