@@ -1,22 +1,19 @@
 <div class="home container">
-    <div class="home-head p-2 fs-1 fw-medium">
-        <img class="logo" src="/assets/Images/GoBiker.png" alt="">
-    </div>
     <div class="home-options d-flex justify-content-between align-items-center">
-        <div class="d-flex flex-column align-items-center justify-content-start">
-            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">search</mat-icon>
+        <div class="d-flex flex-column align-items-center justify-content-start" (click)="navigateSearchRides()">
+            <i class="fa-solid fa-magnifying-glass fa-xl icon-highlight rounded-circle d-flex justify-content-center align-items-center"></i>
             <div class="fw-medium fs-6 text-center text-container">Find Rides</div>
         </div>
         <div class="d-flex flex-column align-items-center justify-content-start" routerLink="/rides/create">
-            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">add</mat-icon>
+            <i class="fa-solid fa-plus fa-xl icon-highlight rounded-circle d-flex justify-content-center align-items-center"></i>
             <div class="fw-medium fs-6 text-center text-container">Organize Ride</div>
         </div>
         <div class="d-flex flex-column align-items-center justify-content-start" routerLink="/events">
-            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">calendar_today</mat-icon>            
+            <i class="fa-regular fa-calendar fa-xl icon-highlight rounded-circle d-flex justify-content-center align-items-center"></i>          
             <div class="fw-medium fs-6 text-center text-container">Upcoming Events</div>
         </div>
         <div class="d-flex flex-column align-items-center justify-content-start">
-            <mat-icon class="icon-highlight rounded-circle d-flex justify-content-center align-items-center">record_voice_over</mat-icon>
+            <i class="fa-regular fa-comments fa-xl icon-highlight rounded-circle d-flex justify-content-center align-items-center"></i>
             <div class="fw-medium fs-6 text-center text-container">Discussions</div>
         </div>
     </div>

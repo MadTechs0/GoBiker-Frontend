@@ -2,10 +2,25 @@
     font-size: xx-large;
 }
 .search-communities{
-    mat-icon{
-        position: absolute;        
-    }
     input{
         color: #b6b4be;
     }
 }
+.communities {
+    display: grid;
+    grid-template-rows: repeat(2, min-content); 
+    grid-auto-flow: column; 
+    gap: 10px; 
+    overflow-x: auto;
+    overflow-y: hidden; 
+    scroll-behavior: smooth; 
+    width: 100%; 
+    white-space: nowrap;
+    max-height: fit-content;
+}
+
+.my-communities app-community-card {
+    width: fit-content;
+    height: fit-content;
+}
+

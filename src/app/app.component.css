@@ -3,15 +3,17 @@
     flex-direction: column;
     height: 100vh; 
     font-family: Verdana, Geneva, sans-serif;
+    background-color: var(--color-charcoal-black);
+    color: var(--color-text-light);
 }
 
 .base-container {
     flex-grow: 1;     
-    background-color: #f1f3f4;
 }
 
 .footer {
     flex-shrink: 0; 
+    color: var(--color-text-light);
 }
 .top-loader {
     position: fixed;
@@ -35,4 +37,3 @@
       width: 100%;
     }
   }
-  

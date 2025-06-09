@@ -7,15 +7,17 @@
     <form [formGroup]="loginForm" class="d-flex flex-column option-gap">
     <div class="d-flex flex-column gap-10">
       <div class="fw-normal fs-5">Email/Username</div>
-      <input type="email" formControlName="email" class="form-control" placeholder="Enter username or email" />
+      <input type="email" formControlName="email" [ngClass]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid ? 'border border-danger' :''" class="form-input" placeholder="Enter username or email" />
+      <div class="text-danger" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')">*username is required</div>
     </div>
     <div class="d-flex flex-column gap-10">
       <div class="fw-normal fs-5">Password</div>
       <div class="input-wrapper d-flex align-items-center position-relative">
-        <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password" class="form-control" placeholder="enter your password" />
-        <mat-icon class="position-absolute show-password" *ngIf="!passwordVisible" (click)="passwordVisible = true">remove_red_eye</mat-icon>
-        <mat-icon class="position-absolute show-password" *ngIf="passwordVisible" (click)="passwordVisible = false">visibility_off</mat-icon>
+        <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password" class="form-input w-100" placeholder="enter your password"  [ngClass]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid ? 'border  border-danger' :''" />
+        <i class="fa-regular fa-eye fa-xl position-absolute show-password" *ngIf="!passwordVisible" (click)="passwordVisible = true"></i>
+        <i class="fa-regular fa-eye-slash fa-xl position-absolute show-password" *ngIf="passwordVisible" (click)="passwordVisible = false"></i>
       </div>
+      <div class="text-danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">*password is required</div>
       <div class="text-danger">{{loginError}}</div>
     <button class="btn btn-primary fw-medium fs-6 w-100 p-2 rounded-2" (click)="logIn()">
       Log In

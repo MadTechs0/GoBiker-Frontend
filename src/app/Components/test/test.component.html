@@ -1,0 +1,78 @@
+<div class="collab-page container py-5">
+    <!-- Hero Section -->
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold mb-3">Business Collaboration</h1>
+      <p class="lead text-muted w-75 mx-auto">
+        Partner with us to create meaningful connections and drive innovation
+      </p>
+    </div>
+  
+    <!-- Benefits -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-4" *ngFor="let benefit of benefits">
+        <div class="card border-0 h-100 p-4 hover-scale">
+          <div class="icon-wrapper bg-primary mb-3">
+            <i class="bi" [class]="benefit.icon"></i>
+          </div>
+          <h4 class="fw-bold">{{benefit.title}}</h4>
+          <p class="text-muted">{{benefit.description}}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Collaboration Form -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow rounded-4 p-4">
+          <h2 class="fw-bold mb-4">Start Collaborating</h2>
+          <form (ngSubmit)="submitCollaboration()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Company Name</label>
+                <input type="text" class="form-control" [(ngModel)]="collabForm.company" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Industry</label>
+                <select class="form-select" [(ngModel)]="collabForm.industry" required>
+                  <option *ngFor="let industry of industries" [value]="industry">
+                    {{industry}}
+                  </option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Collaboration Proposal</label>
+                <textarea class="form-control" rows="4" 
+                  [(ngModel)]="collabForm.proposal" required></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg px-5">
+                  Submit Proposal
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Success Stories -->
+    <div class="success-stories mt-5">
+      <h3 class="fw-bold mb-4">Success Stories</h3>
+      <div class="row g-4">
+        <div class="col-md-4" *ngFor="let story of successStories">
+          <div class="card border-0 h-100">
+            <div class="card-body">
+              <p class="text-muted mb-3">"{{story.testimonial}}"</p>
+              <div class="d-flex align-items-center">
+                <img [src]="story.logo" class="company-logo me-3" alt="Company logo">
+                <div>
+                  <h6 class="fw-bold mb-0">{{story.company}}</h6>
+                  <small class="text-muted">{{story.industry}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

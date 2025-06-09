@@ -1,4 +1,5 @@
-<div class="top-bar d-flex justify-content-between align-items-center p-2">
+<div class="top-bar d-flex align-items-center p-2 position-relative border-bottom" *ngIf="showTopBar">
     <img class="logo" src="/assets/Images/GoBiker.png" alt="">
-    <mat-icon>notifications</mat-icon>
+    <div class="fw-medium fs-5 page-title position-absolute start-50 translate-middle-x">{{ pageName }}</div>
+    <img src="assets/Images/default_profile.jpg" class="profile-img rounded-circle" alt="" routerLink="/profile">
 </div>

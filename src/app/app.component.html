@@ -1,6 +1,7 @@
 <div *ngIf="loading" class="top-loader"></div>
-<div class="page-container overflow-hidden d-flex flex-column vh-100">
-  <div [class.fade-in]="loading" class="base-container flex-grow-1 overflow-auto" >
+<div class="page-container overflow-hidden light-mode d-flex flex-column vh-100">
+  <app-top-bar [showTopBar]="showTopBar" [pageName]="pageName"></app-top-bar>
+  <div [class.fade-in]="loading" class="base-container flex-grow-1 overflow-auto pt-2 pb-2" >
       <router-outlet></router-outlet>
   </div>
     <app-footer></app-footer>

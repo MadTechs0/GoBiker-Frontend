@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./rides.component.css']
 })
 export class RidesComponent {
+  @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
   showCards: boolean = true;
   showSearch: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute){}
@@ -15,5 +16,12 @@ export class RidesComponent {
     this.router.events.subscribe(() => {
       this.showCards = this.route.snapshot.firstChild === null;
     });
+    this.focusSearch();
+  }
+
+  focusSearch() {
+    setTimeout(() => {
+    this.searchInput.nativeElement.focus();
+  }, 0);
   }
 }

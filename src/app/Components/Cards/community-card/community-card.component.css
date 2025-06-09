@@ -1,0 +1,26 @@
+.community{
+    width: 360px;
+    min-width: 360px;
+    max-width: 360px;
+}
+.community-img{
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    background-color: black;
+}
+.join-btn{
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50px;
+}
+.description {
+    display: -webkit-box;            /* Use flexbox for layout */
+    -webkit-box-orient: vertical;   /* Set the box orientation to vertical */
+    overflow: hidden;               /* Hide the overflowing text */
+    text-overflow: ellipsis;        /* Add ellipsis (...) for truncated text */
+    line-clamp: 2;                  /* Clamp the text to two lines */
+    -webkit-line-clamp: 2;          /* Ensure compatibility with WebKit-based browsers */
+  }
+  

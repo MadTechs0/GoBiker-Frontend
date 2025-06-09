@@ -1,7 +1,20 @@
 .top-bar{
-    background-color: #fff;
     width: 100%;
 }
-.logo{
-    width: 100px;
+.profile-img{
+    max-height: 50px;
+    max-width: 50px;
+}
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.page-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; 
 }

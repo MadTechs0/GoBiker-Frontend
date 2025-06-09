@@ -1,6 +1,3 @@
-.event{
-    background-color: #f1efef;
-}
 .event-img{
      min-width: 100%;
      min-height: 250px;
@@ -29,10 +26,8 @@
 .event-info{
     position: absolute;
     bottom: 70px;
-    background-color: #ffffff;
     width: fit-content;
-    border-top: royalblue;
 }
 .event-details{
-    background-color: #f8f5f5;
+    background-color: var(--color-charcoal-black);
 }

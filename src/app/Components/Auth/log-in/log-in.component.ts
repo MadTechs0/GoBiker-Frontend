@@ -12,7 +12,7 @@ export class LogInComponent implements OnInit {
   loginForm!:FormGroup;
   passwordVisible: boolean = false;
   loginError: string = '';
-
+  playgif = false;
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){}
 
   ngOnInit() {
@@ -39,5 +39,11 @@ export class LogInComponent implements OnInit {
     }else{
       this.loginForm.markAllAsTouched();
     }
+  }
+  playGif():void{
+    this.playgif = true;
+    setTimeout(() =>{this.playgif = false;
+
+    },500);
   }
 }

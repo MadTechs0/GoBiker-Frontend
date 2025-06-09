@@ -1,54 +1,62 @@
-<div class="d-flex flex-column option-gap container pt-1 pb-3">
-    <i class="pi pi-arrow-left"></i>
-    <div class="profile-head fw-medium mb-4">Your Profile</div>
-    <div class="d-flex align-items-center flex-column option-gap justify-content-center">      
-      <img  class="profile-img rounded-circle" src="/assets/Images/default_profile.jpg" alt="">
+<div class="profile d-flex flex-column option-gap container pt-1 pb-3 slide-in">
+    <mat-icon>arrow_back</mat-icon>
+    <div class="d-flex align-items-center flex-column option-gap justify-content-center profile-container position-relative">      
+      <img *ngIf="profile.profileUrl == null" class="profile-img rounded-circle" src="/assets/Images/default_profile.jpg" alt="">
+      <img *ngIf="profile.profileUrl != null" class="profile-img rounded-circle" [src]="profile.profileUrl" alt="">
+      <label for="profile" class="profile-edit-overlay"><mat-icon class="edit-icon">edit</mat-icon></label>
+      <input type="file" class="d-none" id="profile">
         <div class="fs-3 fw-medium">{{profile.userName}}</div>
     </div>
 
-    <div class="d-flex justify-content-between w-100"><div class="fs-6">Personal Information</div> <div class="d-flex align-items-center p-color"><mat-icon>drive_file_rename_outline</mat-icon>Edit</div></div>
-    <div class="card rounded-4">
+    <div class="d-flex justify-content-between w-100"><div class="fs-6">Personal Information</div> <div class="d-flex align-items-center p-color"><mat-icon class="fs-5">border_color</mat-icon>Edit</div></div>
+    <div class="card divider rounded-4">
         <ul class="list-group list-group-flush rounded-4">
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>badge</mat-icon>Name</div>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal d-flex align-items-center gap-10"><i class="fa-regular fa-id-card fa-xl"></i>Name</div>
                 <div class="">{{profile.name}}</div>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>email</mat-icon>Email</div>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-at fa-xl"></i> Email</div>
                 <div class="">{{profile.email}}</div>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>phone_android</mat-icon>Phone</div>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-mobile-screen-button fa-xl"></i>Phone</div>
                 <div class="">{{profile.phone? profile.phone:'N/A'}}</div>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>location_on</mat-icon>Location</div>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-map-pin fa-xl"></i>Location</div>
                 <div class="">Delhi</div>
             </li>
           </ul>
     </div>
     <div class="fs-6">Utilities</div>
-    <div class="card rounded-4">
+    <div class="card divider rounded-4">
         <ul class="list-group list-group-flush rounded-4">
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>history</mat-icon>Ride History</div>
-                <mat-icon class="p-color">keyboard_arrow_right</mat-icon>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-clock-rotate-left fa-xl"></i>Ride History</div>
+                <i class="fa-solid fa-chevron-right"></i>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>workspaces</mat-icon>Collab</div>
-                <mat-icon class="p-color">keyboard_arrow_right</mat-icon>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-handshake fa-xl"></i>Collab</div>
+                <i class="fa-solid fa-chevron-right"></i>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>support_agent</mat-icon>Support</div>
-                <mat-icon class="p-color">keyboard_arrow_right</mat-icon>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-headset fa-xl"></i>Support</div>
+                <i class="fa-solid fa-chevron-right"></i>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>settings</mat-icon>Settings</div>
-                <mat-icon class="p-color">keyboard_arrow_right</mat-icon>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-gear fa-xl"></i>Settings</div>
+                <i class="fa-solid fa-chevron-right"></i>
             </li>
-            <li class="list-group-item d-flex justify-content-between" (click)="logOut()" routerLink="/auth/login">
-                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><mat-icon>logout</mat-icon>Log Out</div>
-                <mat-icon class="p-color">keyboard_arrow_right</mat-icon>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-moon fa-xl"></i>Dark Mode</div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                </div>
+            </li>
+            <li class="bg-color-secondary divider-bottom list-group-item d-flex justify-content-between" (click)="logOut()" routerLink="/auth/login">
+                <div class="fw-normal text-color-dark d-flex align-items-center gap-10"><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>Log Out</div>
+                <i class="fa-solid fa-chevron-right"></i>
             </li>
           </ul>
     </div>    

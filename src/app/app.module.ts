@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PostCardComponent } from './Components/Cards/post-card/post-card.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PostDefComponent } from './Components/Cards/post-def/post-def.component';
-import { EventComponent } from './Components/Event/event.component';
+import { EventComponent } from './Components/event/event.component';
 import { EventCardComponent } from './Components/Cards/event-card/event-card.component';
 import { EventDefComponent } from './Components/Cards/event-def/event-def.component';
 import { RidesComponent } from './Components/rides/rides.component';
@@ -28,6 +28,17 @@ import { CreateComponent } from './Components/create/create.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { AuthInterceptor } from './Shared/Interceptor/auth-interceptor';
 import { TopBarComponent } from './Components/top-bar/top-bar.component';
+import { CreateCommunityComponent } from './Components/create-community/create-community.component';
+import { CommunityCardComponent } from './Components/Cards/community-card/community-card.component';
+import { LoaderComponent } from './Components/loader/loader.component';
+import { InboxComponent } from './Components/inbox/inbox.component';
+import { ChatComponent } from './Components/chat/chat.component';
+import { TestComponent } from './Components/test/test.component';
+import { AboutComponent } from './Components/about/about.component';
+import { SupportComponent } from './Components/support/support.component';
+import { SettingsComponent } from './Components/settings/settings.component';
+import { CollabComponent } from './Components/collab/collab.component';
+import { LocationPickerComponent } from './Components/location-picker/location-picker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +62,17 @@ import { TopBarComponent } from './Components/top-bar/top-bar.component';
     MapComponent,
     CreateComponent,
     TopBarComponent,
+    CreateCommunityComponent,
+    CommunityCardComponent,
+    LoaderComponent,
+    InboxComponent,
+    ChatComponent,
+    TestComponent,
+    AboutComponent,
+    SupportComponent,
+    SettingsComponent,
+    CollabComponent,
+    LocationPickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +82,7 @@ import { TopBarComponent } from './Components/top-bar/top-bar.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxEditorModule
+    NgxEditorModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, 

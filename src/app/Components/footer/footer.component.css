@@ -1,39 +1,17 @@
-.footer-toggle {
-    position:absolute;
-    top: -45px;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out;
-    width: fit-content;
-    height: fit-content;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    mat-icon {
-        font-size: 30px;
-        color: #333;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.toggle-icon{    
-  transform: translateY(100%);
-}
-.footer-hidden {
-  transform: translateY(100%);
-  background-color: transparent;
-}
-    
+   
 .footer{
-    background-color: #ffff;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 .active-option{    
-    color:#ff272a;
-    mat-icon{
+    color:hsl(359, 100%, 58%);
+    img{
         background-color: #ffeae9;
         border-radius: 50%;
         padding: 5px;

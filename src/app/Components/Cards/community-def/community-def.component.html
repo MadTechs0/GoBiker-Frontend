@@ -1,24 +1,46 @@
 <div class="community-head d-flex flex-column gap-10">
-    <div class="community-poster">
-
+    <div class="community-poster"  [style.backgroundImage]="'url(' + community.bannerUrl + ')'">
+        <div class="community-actions d-flex align-items-center justify-content-between position-absolute p-2 w-100">
+            <div class="d-flex gap-10 align-items-center">
+            <div class="action d-flex align-items-center justify-content-center"><i class="fa-solid fa-arrow-left fa-xl"></i></div>
+            <div class="community-name fs-5 fw-bold">
+                {{community.name}}
+            </div>
+            </div>
+            <div class="d-flex gap-10 align-items-center">
+                <div class="action d-flex align-items-center justify-content-center"><i class="fa-solid fa-share-nodes fa-xl"></i></div>
+                <div class="action d-flex align-items-center justify-content-center"><i class="fa-solid fa-ellipsis fa-xl"></i></div>
+            </div>
+        </div>
         <div class="community-info d-flex align-items-center gap-10  container">
-            <img  class="community-img rounded-circle" src="/assets/Images/default_profile.jpg" alt="">
+            <img  class="community-img rounded-circle border-bg" [src]="community.avatarUrl" alt="">
 
             <div class="community-title h-100 d-flex flex-column justify-content-end">
-                <div class="fw-medium fs-5">/RidersUnited</div>
-                <div class="text-color-dark">1.6k members</div>
+                <div class="fw-medium fs-5">/{{community.name}}</div>
+                <div class="text-color-dark">{{community.members}}k members</div>
             </div>
         </div>
     </div>
     <div class="community-options d-flex align-items-center gap-10 mt-5  container">
-        <button class="btn btn-light d-flex align-items-center rounded-pill border-secondary"><mat-icon>add</mat-icon>Create Post</button>
+        <button class="btn btn-light d-flex align-items-center gap-10 rounded-pill border-secondary"><i class="fa-solid fa-plus"></i>Create Post</button>
         <button class="btn btn-warning rounded-pill">Join</button>
     </div>
     <div class="community-content d-flex gap-10 align-items-center  container">
-        <span class="rounded-pill p-2 fw-medium">Feed</span> <span class="rounded-pill p-2 fw-medium">About</span>
+        <span class="rounded-pill p-2 fw-medium bg-color-secondary" (click)="index=0" [ngClass]="index==0 ? 'divider': ''">Feed</span> <span class="rounded-pill p-2 fw-medium bg-color-secondary" (click)="index=1"  [ngClass]="index==1 ? 'divider': ''">About</span>
+    </div>
+<div class="feed fade-in" *ngIf="index==0">
+    <app-post-card [communityId]="community._id" [postClose]="true"></app-post-card>
+</div>
+<div class="about fade-in d-flex justify-content-center align-items-start pt-4" *ngIf="index==1">
+    <div class="info rounded-4 p-2 d-flex flex-column gap-10 bg-color-secondary">
+        <div>
+            <b class="text-color-primary">Description</b>
+            <div class="fw-medium">{{community.description}}</div>
+        </div>
+        <div>
+            <b class="text-color-primary">Created</b>
+            <div class="fw-medium">{{ community.createdAt | date: 'd MMM yyyy' }}</div>
+        </div>
     </div>
 </div>
-<app-post-card [postClose]="true"></app-post-card>
-<app-post-card [postClose]="true"></app-post-card>
-<app-post-card [postClose]="true"></app-post-card>
-<app-post-card [postClose]="true"></app-post-card>
+</div>

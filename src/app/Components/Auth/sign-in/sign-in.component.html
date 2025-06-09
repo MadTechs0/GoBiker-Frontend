@@ -13,32 +13,45 @@
   <form [formGroup]="signInForm" class="d-flex flex-column option-gap">
     <div class="d-flex flex-column gap-10">
       <div class="fw-normal fs-5">Name</div>
-      <input type="text" formControlName="name" class="form-control" placeholder="jhon Smith" />
+      <input type="text" formControlName="name" class="form-input" [ngClass]="signInForm.get('name')?.touched && signInForm.get('name')?.hasError('required') ?'border border-danger' :''" placeholder="jhon Smith" />
       <div class="text-danger" *ngIf="signInForm.get('name')?.touched && signInForm.get('name')?.hasError('required')">*name is required</div>
     </div>
     <div class="d-flex flex-column gap-10">
       <div class="fw-normal fs-5">Username</div>
-      <input type="email" formControlName="userName" class="form-control" placeholder="ShivamRU1" />
-      <div class="text-danger" *ngIf="signInForm.get('userName')?.touched && signInForm.get('userName')?.hasError('required')">*username is required</div>
+      <input type="email" formControlName="userName" class="form-input" [ngClass]="signInForm.get('userName')?.touched && signInForm.get('userName')?.invalid ? 'border border-danger' :''" placeholder="ShivamRU1" />
+      <div *ngIf="signInForm.get('userName')?.touched">
+        <div class="text-danger" *ngIf="signInForm.get('userName')?.hasError('required')">
+          *Username is required
+        </div>
+        <div class="text-danger" *ngIf="signInForm.get('userName')?.hasError('minlength')">
+          *Username should contain at least 4 characters
+        </div>
+        <div *ngIf="signInForm.get('userName')?.hasError('userNameTaken')" class="text-danger d-flex align-items-center gap-10">
+          <mat-icon class="fw-bold">highlight_off</mat-icon> Username is already taken.
+        </div>
+        <div *ngIf="signInForm.get('userName')?.valid && signInForm.get('userName')?.value" class="text-success d-flex align-items-center gap-10">
+          <mat-icon class="fw-bold">check_circle_outline</mat-icon> Username is available!
+        </div>
+      </div>
     </div>
     <div class="d-flex flex-column gap-10">
       <div class="fw-normal fs-5">Email</div>
-      <input type="email" formControlName="email" class="form-control" placeholder="jhon@email.com" />
-      <div class="text-danger" *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.hasError('email')">*enter a valid email</div>
-      <div class="text-danger" *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.hasError('required')">*enter is required</div>
+      <input type="email" formControlName="email" class="form-input" placeholder="jhon@email.com" [ngClass]="signInForm.get('email')?.touched && signInForm.get('email')?.invalid? 'border border-danger': ''"/>
+      <div *ngIf="signInForm.get('email')?.touched">
+        <div class="text-danger" *ngIf="signInForm.get('email')?.hasError('email')">*enter a valid email</div>
+        <div class="text-danger" *ngIf="signInForm.get('email')?.hasError('required')">*email is required</div>
+        <div class="text-danger" *ngIf="signInForm.get('email')?.hasError('duplicateEmail')">*email already registered login instead</div>
+      </div>
     </div>
     <div class="d-flex flex-column gap-10">
       <div class="fw-normal fs-5">Phone</div>
-      <input type="" formControlName="phone" class="form-control" placeholder="0987654321 (optional)" />
+      <input type="" formControlName="phone" class="form-input" placeholder="0987654321 (optional)" />
     </div>
     <div class="d-flex flex-column gap-10">
         <div class="fw-normal fs-5">Password</div>
-        <div class="input-wrapper d-flex align-items-center position-relative">
-          <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password" class="form-control" placeholder="enter password" />
-          <mat-icon class="position-absolute show-password" *ngIf="!passwordVisible" (click)="passwordVisible = true">remove_red_eye</mat-icon>
-          <mat-icon class="position-absolute show-password" *ngIf="passwordVisible" (click)="passwordVisible = false">visibility_off</mat-icon>
-        </div>
-        <div *ngIf="signInForm.get('password')!.touched || signInForm.get('password')!.value">
+        <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password" [ngClass]="!passwordValidator() && signInForm.get('password')?.touched ? 'border border-danger':''" class="form-input w-100" placeholder="enter password" />
+        <div class="text-danger" *ngIf="signInForm.get('password')!.touched && signInForm.get('password')?.hasError('required')">*password is required</div>
+        <div *ngIf="signInForm.get('password')!.touched && (signInForm.get('password')!.value)">
           <div class="d-flex align-items-center gap-10" *ngIf="signInForm.get('password')?.touched || signInForm.get('password')!.value.length < 8" [ngClass]="signInForm.get('password')!.value.length < 8 ? 'text-danger' : 'text-success'">
             <mat-icon class="fw-bold">{{passwordValidator()? 'check_circle_outline': 'highlight_off'}}</mat-icon><div class="d-flex flex-wrap">contains at least 8 characters.</div>
           </div>
@@ -49,7 +62,7 @@
       </div>
     <div class="d-flex flex-column gap-10">
       <div class="fw-normal fs-5">Confirm Password</div>
-      <input type="text" formControlName="confirmPassword" class="form-control" placeholder="confirm password" />
+      <input type="text" formControlName="confirmPassword" class="form-input" placeholder="confirm password" />
       <div class="text-danger" *ngIf="signInForm.get('confirmPassword')?.touched && (signInForm.get('password')?.value != signInForm.get('confirmPassword')?.value)">*passwords doesn't match</div>
     </div>
   </form>

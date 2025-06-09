@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Editor, Toolbar } from 'ngx-editor';
-import { Post } from 'src/app/Models/post.model';
+import { catchError, debounceTime, distinctUntilChanged, map, of, switchMap } from 'rxjs';
+import { Community } from 'src/app/Models/community.model';
+import { createPost } from 'src/app/Models/create-post.model';
+import { CommunityService } from 'src/app/Services/community.service';
 import { PostService } from 'src/app/Services/post.service';
 
 @Component({
@@ -10,10 +13,13 @@ import { PostService } from 'src/app/Services/post.service';
 })
 export class CreateComponent {
   editor!: Editor;
-  post:Post = {
-    communityId:'1234',
+  communityName:string = '';
+  communities!: Community[];
+  post:createPost = {
+    communityId:'',
     title:'',
-    description:''
+    description:'',
+    hasImage: false
   };
   toolbar: Toolbar = [
     // default value
@@ -23,9 +29,8 @@ export class CreateComponent {
   ];
   selectedFile!: File;
   postImg: string | ArrayBuffer | null = null;
-  html='';
 
-  constructor(private postService:PostService){}
+  constructor(private postService:PostService, private communityService:CommunityService){}
   ngOnInit(): void {
     this.editor = new Editor();
   }
@@ -45,11 +50,29 @@ export class CreateComponent {
     reader.readAsDataURL(this.selectedFile);
     }
   }
-
+  searchCommunity(name:string){
+    this.communityService.searchCommunityByName(name).pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((name:any)=>
+        this.communityService.searchCommunityByName(name).pipe(
+          catchError(() => of (null))
+        )
+      )
+    ).subscribe((response:any) => {
+      this.communities = response.communities;
+      console.log(response);      
+    });
+  }
   createPost(){
     console.log(this.post);
-    if(this.selectedFile && this.post.title && this.post.communityId){
-      this.postService.createPost(this.post, this.selectedFile);
+    if(this.post.title && this.post.communityId){
+      if(this.selectedFile){
+        this.post.hasImage = true;
+        this.postService.createPost(this.post, this.selectedFile);
+      }else{
+        this.postService.createPost(this.post);
+      }
     }
   }
 }

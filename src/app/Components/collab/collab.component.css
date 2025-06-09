@@ -1,0 +1,25 @@
+.collaboration-page .hover-card {
+    transition: all 0.3s ease;
+  }
+  
+  .collaboration-page .hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .collaboration-page .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .collaboration-page .icon-wrapper i {
+    font-size: 1.5rem;
+  }
+  
+  .collaboration-page textarea {
+    min-height: 200px;
+  }

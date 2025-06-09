@@ -1,0 +1,163 @@
+<div [@slideAnimation]="index" class="step-container">
+  <form [formGroup]="communityForm">
+    <div class="container d-flex flex-column option-gap" *ngIf="index == 0">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center option-gap">
+          <mat-icon>arrow_back</mat-icon>
+          <div class="btn btn-light rounded-pill fw-medium text-color">1/3</div>
+        </div>
+        <button
+          class="btn btn-primary rounded-pill fw-bold post-btn"
+          (click)="nextStep()"
+          [disabled]="communityForm.get('name')?.value == '' || !communityForm.get('name')?.valid || communityForm.get('description')?.value == '' || !communityForm.get('description')?.valid"
+        >
+          Next
+        </button>
+      </div>
+      <div>
+        <div class="fw-bold fs-4">Tell us about your community</div>
+        <div class="text-color fs-6">
+          A description will help people understand about your community
+        </div>
+      </div>
+      <div class="d-flex flex-column option-gap">
+        <div class="d-flex flex-column gap-10">
+          <label for="name" class="fs-5">Community Name<span class="text-danger">*</span></label>
+          <input
+            type="text"
+            formControlName="name"
+            class="form-input"
+            placeholder="enter your community name"
+            maxlength="20"
+          />
+          <span class="text-end text-color">{{20 - communityForm.get('name')?.value?.length}}</span>
+          <div *ngIf="communityForm.get('name')?.touched">
+            <div *ngIf="communityForm.get('name')?.hasError('nameTaken')" class="text-danger d-flex align-items-center gap-10">
+              <mat-icon class="fw-bold">highlight_off</mat-icon>name is already taken.
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-10">
+          <label for="description" class="fs-5 fw-normal">Desciption<span class="text-danger">*</span></label>
+          <textarea
+            class="rounded-4 form-input"
+            formControlName="description"
+            placeholder="Add a short description to let others know the purpose of your community"
+            rows="5"
+            maxlength="500"
+          ></textarea>
+          <span class="text-end text-color">{{500 - communityForm.get('description')?.value?.length}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="container d-flex flex-column option-gap" *ngIf="index == 1">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center option-gap">
+          <mat-icon (click)="previousStep()">arrow_back</mat-icon>
+          <div class="btn btn-light rounded-pill fw-medium text-color">2/3</div>
+        </div>
+        <button
+          class="btn btn-primary rounded-pill fw-bold post-btn"
+          (click)="nextStep()"
+        >
+          Next
+        </button>
+      </div>
+      <div>
+        <div class="fw-bold fs-4">Style your community</div>
+        <div class="text-color fs-6">
+          An attactive poster and avatar will make your community stand out
+        </div>
+      </div>
+      <div class="d-flex flex-column option-gap">
+        <div class="d-flex flex-column gap-10">
+          <div class="fs-5 fw-medium">Preview</div>
+          <div class="community-poster rounded-4 mb-4" [ngStyle]="{'background-image': 'url(' + banner + ')'}">
+            <div
+              class="community-info d-flex align-items-center gap-10 container"
+            >
+              <img
+                class="community-img rounded-circle"
+                [src]="avatar"
+                alt=""
+              />
+
+              <div
+                class="community-title h-100 d-flex flex-column justify-content-end"
+              >
+                <div class="fw-bold fs-5">/RidersUnited</div>
+                <div class="text-color-dark">1 member</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column option-gap">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="fs-5">Banner</span
+          >
+          <label for="banner">
+            <div
+              class="btn fw-bold d-flex align-items-center gap-10 rounded-pill btn-light"
+            >
+              <img src="assets/Icons/image.png" alt="">Add
+            </div>
+          </label>
+          <input type="file" id="banner" class="d-none" (change)="onBannerSelected($event)">
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="fs-5">Avatar</span
+          >
+          <label for="avatar">
+            <div
+              class="btn fw-bold d-flex gap-10 align-items-center rounded-pill btn-light"
+            >
+            <img src="assets/Icons/image.png" alt="">Add
+            </div>
+          </label>
+          <input type="file" class="d-none"  id="avatar" (change)="onAvatarSelected($event)">
+        </div>
+      </div>
+    </div>
+    <div class="container d-flex flex-column option-gap" *ngIf="index == 2">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center option-gap">
+          <mat-icon (click)="previousStep()">arrow_back</mat-icon>
+          <div class="btn btn-light rounded-pill fw-medium text-color">3/3</div>
+        </div>
+        <button class="btn btn-primary rounded-pill fw-bold post-btn" (click)="createCommunity()">
+          Create
+        </button>
+      </div>
+      <div>
+        <div class="fw-bold fs-4">Select visibility type</div>
+        <div class="text-color fs-6">
+          You can decide who can view contribute to you community
+        </div>
+      </div>
+      <div class="d-flex flex-column option-gap">
+        <label class="d-flex justify-content-between align-items-center"
+          ><div class="d-flex option-gap align-items-center">
+            <img src="assets/Icons/globe.png" alt="">
+            <div>
+              <div class="fs-6 fw-medium">Public</div>
+              <div class="text-color">Anyone can view and contribute</div>
+            </div>
+          </div>
+          <input type="radio" formControlName="restricted" [value]="false"
+        /></label>
+        <label class="d-flex justify-content-between align-items-center">
+          <div class="d-flex option-gap align-items-center">
+            <img src="assets/Icons/restrict.png" alt="">
+            <div>
+              <div class="fs-6 fw-medium">Restricted</div>
+              <div class="text-color d-flex flex-wrap">
+                Anyone can view and but restrict who contribute</div>
+            </div>
+          </div>
+          <input type="radio" formControlName="restricted" [value]="true"/>
+        </label>
+      </div>
+    </div>
+  </form>
+</div>

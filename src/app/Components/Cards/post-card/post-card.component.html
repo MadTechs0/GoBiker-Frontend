@@ -1,25 +1,28 @@
-<div class="post-card mt-3 border-bottom p-2">
-    <div class="publish-info d-flex justify-content-between">
-        <div class="d-flex">
-            <img class="acc-img rounded-circle me-2" src="/assets/Images/default_profile.jpg" alt="">
-            <div class="acc-name">
-                <div class="fw-bold">Shivam singh</div>
-                <div class="fw-light" routerLink="/community/communitydef">/ridersUnited</div>
+<div class="d-flex flex-column">
+    <div class="post-card border-bottom p-2" *ngFor="let post of posts"  [routerLink]="'/posts/' + post.id">
+        <div class="publish-info d-flex justify-content-between">
+            <div class="d-flex">
+                <img class="acc-img rounded-circle me-2" src="/assets/Images/default_profile.jpg" alt="">
+                <div class="acc-name">
+                    <div class="fw-bold">{{post.creatorId.name}}</div>
+                    <div class="fw-light text-color" routerLink="/communities/communitydef">/{{post.communityId.name}}</div>
+                </div>
+            </div>
+            <div class="post-time text-color">
+                1d
             </div>
         </div>
-        <div class="post-time text-color">
-            1d
+        <div [ngClass]="postClose? 'post-close' : 'post-open'">
+            <div class="post-description fw-normal mt-2 mb-1 fs-4 fw-bold">
+                {{post.title}}
+            </div>
+            <img class="post-img rounded-4" src="/assets/Images/default_post.jpg" alt="">
+        </div>
+        <div class="post-options d-flex option-gap text-color-dark mt-2">
+            <div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-heart fa-xl" style="color: #e4255e;"></i><span>1k</span></div> 
+            <div class="d-flex justify-content-center align-items-center gap-10"><i class="fa-regular fa-comment fa-xl"></i><span>2</span></div>
+            <div class="d-flex justify-content-center align-items-center"><i class="fa-solid fa-share-nodes fa-xl"></i></div>
         </div>
     </div>
-    <div [ngClass]="postClose? 'post-close' : 'post-open'">
-        <div class="post-description fw-normal mt-2 mb-1 fs-4 fw-bold">
-            Sunday Ride Alert!
-        </div>
-        <img class="post-img rounded-4" src="/assets/Images/default_post.jpg" alt="">
-    </div>
-    <div class="post-options d-flex option-gap text-color-dark mt-2">
-        <div class="d-flex align-items-center justify-content-center"><mat-icon>favorite_border</mat-icon><span>1k</span></div> 
-        <div class="d-flex justify-content-center align-items-center"><mat-icon>insert_comment</mat-icon><span>2</span></div>
-        <div class="d-flex justify-content-center align-items-center"><mat-icon>share</mat-icon></div>
-    </div>
+
 </div>

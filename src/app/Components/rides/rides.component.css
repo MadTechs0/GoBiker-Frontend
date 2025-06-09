@@ -1,12 +1,3 @@
-.search-rides{
-    mat-icon{
-        position: absolute;        
-    }
-    input{
-        background-color: #f1f3f4;
-        color: #b6b4be;
-    }
-}
 .add-ride{
     background-color: #ff272a;
     color: #fff;
@@ -17,4 +8,3 @@
     bottom: 0;
     right: 0;
 }
-.page-head{background-color: #fff;}

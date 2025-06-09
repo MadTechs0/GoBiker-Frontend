@@ -2,7 +2,6 @@
     min-width: 100%;
     min-height: 200px;
     border: 4px dashed rgb(190, 190, 190);
-
 }
 .btn-primary {
     background-color: #ff272a;
@@ -17,3 +16,8 @@
 #ride-img{
     display: none;
 }
+  
+  .form-input:focus {
+    border: 1px solid black;
+  }
+  

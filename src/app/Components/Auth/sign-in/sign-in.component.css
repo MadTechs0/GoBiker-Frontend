@@ -25,3 +25,10 @@
 #img-input{
     display: none;
 }
+.input-error{
+    border: 1px solid red!important;
+}
+.input-success{
+    border: 1px solid red!important;
+}
+  

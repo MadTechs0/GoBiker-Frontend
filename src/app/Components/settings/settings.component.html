@@ -1,0 +1,77 @@
+<div class="settings-page container py-5">
+    <div class="text-center mb-5">
+      <img src="assets/favicon-settings.png" alt="Settings Icon" width="80" class="mb-3">
+      <h1 class="display-4 fw-bold mb-3">Account Settings</h1>
+      <p class="lead">Manage your profile and preferences</p>
+    </div>
+  
+    <div class="row g-4">
+      <div class="col-lg-3">
+        <div class="list-group">
+          <button *ngFor="let tab of tabs" 
+            class="list-group-item list-group-item-action text-start"
+            [class.active]="activeTab === tab.id"
+            (click)="setActiveTab(tab.id)">
+            <i class="bi me-2" [class]="tab.icon"></i>
+            {{tab.label}}
+          </button>
+        </div>
+      </div>
+  
+      <div class="col-lg-9">
+        <!-- Profile Tab -->
+        <div *ngIf="activeTab === 'profile'" class="card border-0 shadow rounded-4">
+          <div class="card-body p-4">
+            <h2 class="fw-bold mb-4"><i class="bi bi-person me-2"></i>Profile Settings</h2>
+            <form (ngSubmit)="updateProfile()">
+              <div class="mb-4">
+                <label class="form-label">Profile Picture</label>
+                <div class="d-flex align-items-center">
+                  <img [src]="user.avatar" class="rounded-circle me-3" width="80" height="80">
+                  <button type="button" class="btn btn-outline-secondary">
+                    <i class="bi bi-upload me-2"></i>Change Photo
+                  </button>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" [(ngModel)]="user.name" name="name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="user.email" name="email">
+              </div>
+              <button type="submit" class="btn btn-primary px-4 py-2">
+                <i class="bi bi-check-circle me-2"></i>Save Changes
+              </button>
+            </form>
+          </div>
+        </div>
+  
+        <!-- Security Tab -->
+        <div *ngIf="activeTab === 'security'" class="card border-0 shadow rounded-4">
+          <div class="card-body p-4">
+            <h2 class="fw-bold mb-4"><i class="bi bi-shield-lock me-2"></i>Security</h2>
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <h5>Two-Factor Authentication</h5>
+                  <p class="text-muted mb-0">Add an extra layer of security to your account</p>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="2faToggle" [(ngModel)]="user.twoFactorEnabled">
+                </div>
+              </div>
+            </div>
+            <hr>
+            <button class="btn btn-outline-primary me-3">
+              <i class="bi bi-key me-2"></i>Change Password
+            </button>
+            <button class="btn btn-outline-danger">
+              <i class="bi bi-trash me-2"></i>Delete Account
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    

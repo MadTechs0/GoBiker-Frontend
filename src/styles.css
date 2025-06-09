@@ -1,27 +1,169 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import "primeicons/primeicons.css";
+@import "~@fortawesome/fontawesome-free/css/all.css";
 @import '~quill/dist/quill.bubble.css';
-html, body { height: 100%;
-    font-family: 'Inter', sans-serif !important; }
-body { margin: 0; 
-background-color: #ffffff;}
+html, body { 
+    height: 100%;
+    font-family: 'Inter', sans-serif !important; 
+}
+:root {
+    /* Primary Colors */
+    --color-midnight-blue: #001F3F;
+    --color-midnight-blue-light: #1A3A5F;
+  
+    /* Secondary Colors */
+    --color-electric-cyan: #00FFFF;
+    --color-electric-cyan-light: #66FFFF;
+  
+    /* Accent Colors */
+    --color-flame-red: #D72638;
+    --color-flame-red-light: #FF4A5B;
+    
+    /* bacground-color-light-mode*/
+    --bg-light-primary: #ffffff;
+    --bg-light-secondary: #f7f8fa;
+    --bg-light-accent: #1A3A5F;
 
-.icon-highlight{
-    color:#ff272a;
-    background-color: #ffeae9;
-    min-width: 60px;
-    min-height: 60px;
+    /* bacground-color-dark-mode*/
+    --bg-dark-primary: #111828;
+    --bg-dark-secondary: #202938;
+    --bg-dark-accent: #001A33;
+
+    /* Text Colors */
+    --text-light-primary: #121212;
+    --text-light-secondary: #636e79;
+    --text-dark-primary: #F5F5F5;
+    --text-dark-secondary: #B0B0B0;
+
+    /* Divider Colors */
+    --divider-light: #A9A9A9;
+    --divider-dark: rgba(255, 255, 255, 0.1);
+  
+    /* Text Colors */
+    --color-text-light: var(--color-pearl-white);
+    --color-text-dark: var(--color-jet-black);
+  }
+
+.light-mode {
+  background-color: var(--bg-light-primary) !important;
+  color: var(--text-light-primary) !important;
+  i{
+    color: var(--text-light-primary);
+  }
+  .menu-icon{
+    color: var(--text-light-secondary);
+  }
+  .active-icon{
+    i{
+        color: var(--text-light-primary);
+    }
+  }
+  .icon-highlight{
+      color:#FF4500;
+      background-color: #ffeae9;
+      min-width: 60px;
+      min-height: 60px;
+      i{
+        color: #FF4500;
+      }
+  }
+  .bg-color-primary{
+    background-color: var(--bg-light-primary);
+    color: var(--text-light-primary);
+  }
+  .bg-color-secondary{
+    background-color: var(--bg-light-secondary);
+    color: var(--text-light-secondary);
+  }
+  .divider{
+    border: 1px solid var(--divider-light);
+  }
+  .divider-bottom{
+    border-bottom: 1px solid var(--divider-light);
+  }
+  .border-bg{
+    border: 4px solid var(--bg-light-primary);
+  }
+  .active-bottom{
+    border-bottom: 3px solid #FF4500;
+  }
+  .text-color-primary{
+    color: var(--text-light-primary);
+  }
+  .text-color{
+    color: var(--text-light-secondary);
+  }
+  .form-input{    
+    background-color: var(--bg-light-secondary);
+    color: var(--text-light-secondary);
+  }
+}
+
+.dark-mode {
+    background-color: var(--bg-dark-primary) !important;
+    color: var(--text-dark-primary) !important;
+    i{
+        color: var(--text-dark-primary);
+        height: fit-content;
+        width: fit-content;
+    }
+    .menu-icon{
+      color: var(--text-dark-primary);
+    }
+    .active-icon{
+      i{
+          color: #FF4500;
+      }
+    }
+    .active-bottom{
+      border-bottom: 3px solid #FF4500;
+    }
+    .icon-highlight{
+        color:#FF4500;
+        background-color: #ffeae9;
+        min-width: 60px;
+        min-height: 60px;
+        i{
+          color: #FF4500;
+        }
+    }
+    .bg-color-primary{
+      background-color: var(--bg-dark-primary);
+      color: var(--text-dark-primary);
+    }
+    .bg-color-secondary{
+      background-color: var(--bg-dark-secondary);
+      color: var(--text-dark-secondary);
+    }
+    .divider{
+      border: 1px solid var(--divider-dark);
+    }
+    .divider-bottom{
+      border-bottom: 1px solid var(--divider-dark);
+    }
+    .border-bg{
+      border: 4px solid var(--bg-dark-primary);
+    }
+    .text-color-primary{
+      color: var(--text-dark-primary);
+    }
+    .text-color{
+      color: var(--text-dark-secondary);
+    }
+    .form-input{
+        background-color: var(--bg-dark-secondary);
+        color: var(--text-dark-secondary);
+    }
+}
+.action-icon{
+    color: rgb(9, 115, 253) !important;
+}
+.liked{
+    color: rgb(255, 0, 76) !important;
 }
 .primary-color{
     color: #ff272a;
     background-color: #ffeae9;
-}
-.text-color{
-    color: #afaeb3;
-}
-.text-color-dark{
-    color: #4b4b4b;
 }
 .option-gap{
     gap: 20px;
@@ -35,7 +177,7 @@ background-color: #ffffff;}
     border: none;
 }
 .btn-primary {
-    background-color: #ff272a;
+    background-color: #FF4500;
     color: #fff;
     border: none;
 }
@@ -51,7 +193,16 @@ background-color: #ffffff;}
 .fade-in {
     animation: fadeIn 0.3s ease-in-out;
   }
+  .form-input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+  }
   
+  .form-input:focus {
+    border: 1px solid black;
+  }
   @keyframes fadeIn {
     from {
       opacity: 0;
